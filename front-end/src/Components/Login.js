@@ -1,11 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 const Login = ()=>{
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
+   const navigate = useNavigate()
 
-    const handleLogin = ()=>{
+   useEffect(()=>{
+      const auth = localStorage.getItem('user')
+      if(auth){
+        navigate('/')
+      }
+   }, [] )
+
+    const handleLogin = async ()=>{
         console.log(email, password)
+        let result = await fetch('http://localhost:5000/login', {   // fetch returns promise hence we used async await
+             method :"post",
+             body : JSON.stringify( { email, password } ),
+             headers : {
+                'content-Type':'application/json'
+             }
+        })
+        result  = await result.json()
+        console.log(result)
+        if(result.name){
+            localStorage.setItem("user", JSON.stringify(result))
+             navigate('/')
+        }else{
+            alert('Please Enter correct details')
+        }
     }
 
     return(
