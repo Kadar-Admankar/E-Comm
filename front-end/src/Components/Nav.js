@@ -19,7 +19,7 @@ const Nav = () => {
           </li>
 
           <li>
-            <Link to="/add">add Product</Link>
+            <Link to="/add">Add Product</Link>
           </li>
           {/* oonce yoou click on add product, it will open /add endpoint page */}
 
