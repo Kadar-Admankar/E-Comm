@@ -6,6 +6,7 @@ import SignUp from './Components/SignUp';
 import PrivateComponent from './Components/Private';
 import Login from './Components/Login';
 import AddProduct from './Components/AddProduct';
+import ProductList from './Components/ProductList';
 
 function App() {
   return (
@@ -14,13 +15,13 @@ function App() {
       <Nav />
       <Routes>
 
-        <Route element = { < PrivateComponent />} >  {/* private componet wrapper */}
-        <Route  path='/' element={ <h1>Product Listing Component</h1> }/>  { /* endpoint for frontend url */ }
+        <Route element = { < PrivateComponent />} >  {/* private component wrapper */}
+        <Route  path='/' element={ <ProductList /> }/>  { /* endpoint for frontend url */ }
         <Route  path='/add' element={ <AddProduct /> }/>  
         <Route  path='/update' element={ <h1> update Product Component</h1> }/>
         <Route  path='/logout' element={ <h1>logout Component</h1> }/>
         <Route  path='/profile' element={ <h1>Profile Component</h1> }/>
-        </Route>   {/* private componet wrapper end here */}
+        </Route>   {/* private component wrapper end here */}
 
         <Route path='/signup' element={ <SignUp /> } />
         <Route path='/login' element = { <Login /> } />
