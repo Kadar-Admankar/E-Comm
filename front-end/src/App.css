@@ -57,6 +57,12 @@
   margin-top: 10px;
   margin-left: 20px;
 }
+.invalid-input {
+  color: red;
+  display: block;
+  margin-top: -20px;
+  margin-left: 20px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
