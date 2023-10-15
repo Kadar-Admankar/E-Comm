@@ -6,8 +6,19 @@ const AddProduct = ()=>{
     const [ category, setCategory ] = React.useState('')
     const [ company, setCompany ] = React.useState('')
 
-   const AddProduct = ()=>{
+   const AddProduct = async ()=>{
     console.log(name, price, category, company)
+    const userId = JSON.parse(localStorage.getItem('user'))._id
+    console.log("userId", userId)
+    let result = await fetch('http://localhost:5000/add-product', {
+        method: 'post',
+        body:JSON.stringify({name, price, category, company, userId}),
+        headers:{
+            "content-Type":"application/json"
+        }
+    })
+    result = await result.json()
+  console.log("result", result)
    }
 
     return (
