@@ -29,7 +29,8 @@ const SignUp = () => {
     const result1 = await result.json()
     console.log("result1", result1)
 
-    localStorage.setItem("user", JSON.stringify(result1)) // for local storage
+    localStorage.setItem("user", JSON.stringify(result1.result)) // for local storage
+    localStorage.setItem("token", JSON.stringify(result1.auth)) // for local storage
 
     if(result1){
      navigate('/')  // redirecting to / endpoint // it will drag or hook the / endpoint and display
