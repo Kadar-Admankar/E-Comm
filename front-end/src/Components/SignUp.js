@@ -12,7 +12,7 @@ const SignUp = () => {
   useEffect(()=>{
     const auth = localStorage.getItem('user')
     if(auth){
-        navigate('/')
+        navigate('/')  // once this condition is true redirecting to / or home page
     }
 })
 
@@ -25,7 +25,7 @@ const SignUp = () => {
         'Content-type':'application/json'
       }
     });
-    console.log("result----", result)
+    console.log("result----signUp", result)
     const result1 = await result.json()
     console.log("result1", result1)
 
